@@ -13,10 +13,11 @@ public class TestingMain {
      }
     Calculator calculator = new Calculator();
     double addResult = calculator.add(50,100);
-    System.out.println(addResult);
-
-    double subtractResult = calculator.subtract(200,150);
-    System.out.println(subtractResult);
-
+       double subResult = calculator.subtract(200,150);
+           if (addResult == 150 && subResult == 50) {
+            System.out.println("Calculator test OK");
+        } else {
+            System.out.println("Calculator has error!");
+        }
     }
 }
