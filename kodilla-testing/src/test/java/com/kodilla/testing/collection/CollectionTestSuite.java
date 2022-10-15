@@ -61,6 +61,19 @@ public class CollectionTestSuite {
 //       then
         Assertions.assertEquals(expectedList, filledList);
     }
+    @DisplayName("testing Arrays.asList")
+    @Test
+    void testCaseOddNumbersExterminatorArrayasList(){
+//            given
+        ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(123,421,44,999,14,125,33,50));
+        ArrayList<Integer> evenList = new ArrayList<Integer>(Arrays.asList(44,14,50));
+//        when
+        OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+        List<Integer> listNumbers = oddNumbersExterminator.exterminate(list);
+        System.out.println("Even " + listNumbers);
+//        then
+        Assertions.assertEquals(evenList,listNumbers);
+    }
 
 }
 
