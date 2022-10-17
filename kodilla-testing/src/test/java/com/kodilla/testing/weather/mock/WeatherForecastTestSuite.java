@@ -17,6 +17,7 @@ import static org.mockito.Mockito.when;
 class WeatherForecastTestSuite {
     @Mock
     private Temperatures temperaturesMock;
+
     @BeforeEach
     public void beforeEachTest() {
 //        dane użyte do policzenia średniej i mediany
@@ -29,6 +30,7 @@ class WeatherForecastTestSuite {
 
         when(temperaturesMock.getTemperatures()).thenReturn(temperatureMap);
     }
+
     @Test
     void testCalculateForecastWithMock() {
         //Given
@@ -40,13 +42,14 @@ class WeatherForecastTestSuite {
         //Then
         assertEquals(5, quantityOfSensors);
     }
+
     @Test
     void testCalculateAverageTemperatureWithMock() {
 //        given
-           WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
 
 //        when
-    double averageTemperature = weatherForecast.calculateAverageTemperature(temperaturesMock.getTemperatures());
+        double averageTemperature = weatherForecast.calculateAverageTemperature(temperaturesMock.getTemperatures());
 //        then
         assertEquals(25.56, averageTemperature);
     }

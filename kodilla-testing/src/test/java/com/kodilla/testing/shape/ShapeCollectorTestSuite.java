@@ -2,7 +2,6 @@ package com.kodilla.testing.shape;
 
 import org.junit.jupiter.api.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -34,51 +33,30 @@ public class ShapeCollectorTestSuite {
         @Test
         void testAddFigure() {
             //    given
-//        tworzę obiekt klasy ShapeCollector
             ShapeCollector shapeCollector = new ShapeCollector();
-//        tworzę obiekt klasy Square i deklaruję długość boku potrzebną do policzenia pola
             Square shape = new Square(4.0);
-//    when
-//   metoda addFigure będzie zawierać dodawanie elementu shape do listy
-            shapeCollector.addFigure(shape);
-//    then
-//        sprawdzam czy utworzony obiekt shape jest tym samym co dodany obiekt do listy
-            Assertions.assertEquals(shape, shapeCollector.getFigure(0));
-//drugi test z inną figurą
-            //    given
-            //        tworzę obiekt klasy Circle i deklaruję promień koła potrzebny do policzenia pola
             Circle shape2 = new Circle(2.0);
-//    when
-//   metoda addFigure będzie zawierać dodawanie elementu shape do listy
+            //    when
+            shapeCollector.addFigure(shape);
             shapeCollector.addFigure(shape2);
-//    then
-//        sprawdzam czy utworzony obiekt shape jest tym samym co dodany obiekt do listy
+            //    then
+            Assertions.assertEquals(shape, shapeCollector.getFigure(0));
             Assertions.assertEquals(shape2, shapeCollector.getFigure(1));
         }
-
 
         @Test
         void testRemoveFigure() {
             //    given
             ShapeCollector shapeCollector = new ShapeCollector();
             Square shape = new Square(4.0);
-            shapeCollector.addFigure(shape);
-//    when
-//    metoda removeFigure będzie zawierać usuwanie elementu shape z listy
-            boolean result = shapeCollector.removeFigure(shape);
-//    then
-//        sprawdzam czy wykonało się usunięcie
-            assertTrue(result);
-
-//      drugi test z inna figurą
-            //    given
             Triangle shape2 = new Triangle(4.0, 1.5);
+            shapeCollector.addFigure(shape);
             shapeCollector.addFigure(shape2);
             //    when
-//    metoda removeFigure będzie zawierać usuwanie elementu shape z listy
+            boolean result = shapeCollector.removeFigure(shape);
             boolean result2 = shapeCollector.removeFigure(shape2);
             //    then
-//        sprawdzam czy wykonało się usunięcie
+            assertTrue(result);
             assertTrue(result2);
         }
     }
@@ -86,43 +64,39 @@ public class ShapeCollectorTestSuite {
     @Nested
     @DisplayName("Tests for getting/showing figures")
     class GetShowFigure {
+        @Test
         void testGetFigure(int n) {
-//            given
+            //    given
             ShapeCollector shapeCollector = new ShapeCollector();
-            Square shape = new Square(4.0);
+            Shape shape = new Square(4.0);
+            Shape shape2 = new Circle(4.0);
             shapeCollector.addFigure(shape);
-//            when
-            Shape result = shapeCollector.getFigure(0);
-//            then
-//        sprawdzam czy utworzony obiekt shape jest tym samym co dodany obiekt do listy
-            assertEquals(shape, result);
-//            given
-
-            Circle shape2 = new Circle(4.0);
             shapeCollector.addFigure(shape2);
-//            when
+            //    when
+            Shape result = shapeCollector.getFigure(0);
             Shape result2 = shapeCollector.getFigure(1);
-//            then
-//        sprawdzam czy utworzony obiekt shape jest tym samym co dodany obiekt do listy
-            assertEquals(shape2, result2);
-
+            //    then
+            assertEquals(shape, result);
+//            assertEquals(shape2, result2);
         }
-
+        @Test
         void testShowFigures() {
-//            given
+        //   given
             ShapeCollector shapeCollector = new ShapeCollector();
-            Square shape = new Square(4.0);
-            shapeCollector.addFigure(shape);
-            List<Shape> shapeList = new ArrayList<>();
-            shapeList.add(shape);
+            Shape square = new Square(4.0);
+            Shape circle = new Circle(4.0);
+            Shape triangle = new Triangle(4.0, 2.0);
+            shapeCollector.addFigure(square);
+            shapeCollector.addFigure(circle);
+            shapeCollector.addFigure(triangle);
+
             //When
-//            metoda showFigures będzie zwracać listę typu Shape
+        //   metoda showFigures będzie zwracać listę typu Shape
             List<Shape> resultList = shapeCollector.showFigures();
             //Then
-//            sprawdzam czy utworzona lista w sekcji given (w formie Stringa) jest tą samą listą z metody showFigures
-            assertEquals(shapeList.toString(), resultList.toString());
+        //   sprawdzam czy utworzona lista w sekcji given (w formie Stringa) jest tą samą listą z metody showFigures
+            assertEquals("squarecircletriangle", resultList.getFigure().toString());
         }
     }
-
 }
 
