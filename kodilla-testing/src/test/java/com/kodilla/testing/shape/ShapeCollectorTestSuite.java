@@ -2,8 +2,6 @@ package com.kodilla.testing.shape;
 
 import org.junit.jupiter.api.*;
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -65,23 +63,24 @@ public class ShapeCollectorTestSuite {
     @DisplayName("Tests for getting/showing figures")
     class GetShowFigure {
         @Test
-        void testGetFigure(int n) {
+        void testGetFigure() {
             //    given
-            ShapeCollector shapeCollector = new ShapeCollector();
-            Shape shape = new Square(4.0);
-            Shape shape2 = new Circle(4.0);
-            shapeCollector.addFigure(shape);
-            shapeCollector.addFigure(shape2);
+            ShapeCollector shapeList = new ShapeCollector();
+            Square shape = new Square(4.0);
+            Circle circle = new Circle(4.0);
+            shapeList.addFigure(shape);
+            shapeList.addFigure(circle);
             //    when
-            Shape result = shapeCollector.getFigure(0);
-            Shape result2 = shapeCollector.getFigure(1);
+            Shape result = shapeList.getFigure(0);
+            Shape result2 = shapeList.getFigure(1);
             //    then
             assertEquals(shape, result);
-//            assertEquals(shape2, result2);
+            assertEquals(circle, result2);
         }
+
         @Test
         void testShowFigures() {
-        //   given
+            //   given
             ShapeCollector shapeCollector = new ShapeCollector();
             Shape square = new Square(4.0);
             Shape circle = new Circle(4.0);
@@ -89,13 +88,10 @@ public class ShapeCollectorTestSuite {
             shapeCollector.addFigure(square);
             shapeCollector.addFigure(circle);
             shapeCollector.addFigure(triangle);
-
             //When
-        //   metoda showFigures będzie zwracać listę typu Shape
-            List<Shape> resultList = shapeCollector.showFigures();
+            String shapeNames = shapeCollector.showFigures();
             //Then
-        //   sprawdzam czy utworzona lista w sekcji given (w formie Stringa) jest tą samą listą z metody showFigures
-            assertEquals("squarecircletriangle", resultList.getFigure().toString());
+            assertEquals("SquareCircleTriangle", shapeNames);
         }
     }
 }
