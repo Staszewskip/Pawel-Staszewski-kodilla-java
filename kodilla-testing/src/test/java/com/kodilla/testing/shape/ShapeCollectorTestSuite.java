@@ -2,6 +2,9 @@ package com.kodilla.testing.shape;
 
 import org.junit.jupiter.api.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -80,19 +83,22 @@ public class ShapeCollectorTestSuite {
 
         @Test
         void testShowFigures() {
-            //   given
+//            given
             ShapeCollector shapeCollector = new ShapeCollector();
-            Shape square = new Square(4.0);
-            Shape circle = new Circle(4.0);
-            Shape triangle = new Triangle(4.0, 2.0);
-            shapeCollector.addFigure(square);
-            shapeCollector.addFigure(circle);
-            shapeCollector.addFigure(triangle);
+            Square shape = new Square(4.0);
+            Circle shape2 = new Circle(3.0);
+            shapeCollector.addFigure(shape);
+            shapeCollector.addFigure(shape2);
+            List<Shape> listOfShapes = new ArrayList<>();
+            listOfShapes.add(shape);
+            listOfShapes.add(shape2);
             //When
-            String shapeNames = shapeCollector.showFigures();
+            List<Shape> resultList = shapeCollector.showFigures();
             //Then
-            assertEquals("SquareCircleTriangle", shapeNames);
+            assertEquals(listOfShapes.toString(), resultList.toString());
         }
     }
 }
+
+
 
