@@ -4,32 +4,20 @@ package com.kodilla.testing.forum.tdd;
 import com.kodilla.testing.forum.ForumComment;
 import com.kodilla.testing.forum.ForumPost;
 import com.kodilla.testing.forum.ForumUser;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@DisplayName("TDD: Forum Test Suite \uD83D\uDE31")
+
+
+@DisplayName("TDD: Forum Test Suite")
 class ForumTestSuite {
 
-    private static int testCounter = 0;
-
-    @BeforeAll
-    public static void beforeAllTests() {
-
-        System.out.println("This is the beginning of tests.");
-    }
-
-    @AfterAll
-    public static void afterAllTests() {
-
-        System.out.println("All tests are finished.");
-    }
-
-    @BeforeEach
-    public void beforeEveryTest() {
-        testCounter++;
-        System.out.println("Preparing to execute test #" + testCounter);
-    }
  @Nested
  @DisplayName( "Tests for posts")
  class TestPosts {
@@ -121,6 +109,6 @@ class TestComments {
         Assertions.assertTrue(result);
         assertEquals(0, forumUser.getCommentsQuantity());
     }
-
 }
+
    }

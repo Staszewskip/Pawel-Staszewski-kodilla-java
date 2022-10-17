@@ -1,4 +1,4 @@
-package com.kodilla.testing.weather.stub;
+package com.kodilla.testing.weather;
 
 import java.util.*;
 
