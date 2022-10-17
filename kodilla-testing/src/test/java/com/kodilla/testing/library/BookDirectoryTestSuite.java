@@ -103,7 +103,7 @@ public class BookDirectoryTestSuite {
         // Given
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> borrowedOneBook = generateListOfNBooks(1);
-        LibraryUser libraryUser = new LibraryUser("Jan","Kowalski", "11111");
+        LibraryUser libraryUser = new LibraryUser("Jan","Kowalski", "111111");
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(borrowedOneBook);
 
         // When
