@@ -19,6 +19,7 @@ class WeatherForecastTestSuite {
     private Temperatures temperaturesMock;
     @BeforeEach
     public void beforeEachTest() {
+//        dane użyte do policzenia średniej i mediany
         Map<String, Double> temperatureMap = new HashMap<>();
         temperatureMap.put("Rzeszow", 25.5);
         temperatureMap.put("Krakow", 26.2);
