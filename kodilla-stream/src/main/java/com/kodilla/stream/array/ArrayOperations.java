@@ -14,3 +14,4 @@ public interface ArrayOperations {
 
     }
 }
+//zwrócony typ z average OptionalDouble to nie to samo co wymagany double, dlatego jest metoda getAsDouble
