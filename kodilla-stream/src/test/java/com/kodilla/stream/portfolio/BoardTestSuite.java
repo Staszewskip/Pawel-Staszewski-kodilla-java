@@ -148,8 +148,7 @@ class BoardTestSuite {
         //given
         Board project = prepareTestData();
         List<TaskList> undoneTasks = new ArrayList<>();
-        undoneTasks.add(new TaskList("To do"));
-        undoneTasks.add(new TaskList("In progress"));
+             undoneTasks.add(new TaskList("In progress"));
         //When
 
         int sumOfDays = project.getTaskLists().stream()
@@ -165,7 +164,7 @@ class BoardTestSuite {
                 .count();
         double average = sumOfDays / quantity;
         //then
-        Assertions.assertEquals(14, average);
+        Assertions.assertEquals(10, average);
 
 
     }

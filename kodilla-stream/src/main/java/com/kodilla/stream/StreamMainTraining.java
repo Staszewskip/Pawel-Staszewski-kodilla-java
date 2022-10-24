@@ -39,6 +39,5 @@ public class StreamMainTraining {
                 .filter(s -> s.substring(0,1).equals("M"))
                 .forEach(System.out::println);
 
-
     }
 }
