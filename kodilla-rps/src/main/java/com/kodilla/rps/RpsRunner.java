@@ -16,8 +16,13 @@ public class RpsRunner {
         String userName = scanner.nextLine();
         System.out.println("Welcome " + userName + "\n" + "How many won rounds do you want to play to win the game?");
         int nbOfRoundsToWin = scanner.nextInt();
-
-        System.out.println("Game instruction:");
+        while (!end) {
+            if (nbOfRoundsToWin <= 0) {
+                System.out.println("Wrong number of rounds");
+            }
+            end = true;
+        }
+            System.out.println("Game instruction:");
         System.out.println("""
                 Press "1" key to choose "Rock"\s
                 Press "2" key to choose "Paper"\s
