@@ -32,10 +32,10 @@ public class RpsRunner {
 
         while (!end) {
             game.userChoice();
-            String userAttribute = game.getUserAttribute();
+            int userAttribute = game.getUserChoice();
             game.computerChoice();
-            String computerAttribute = game.getComputerAttribute();
-            System.out.println("Your move: " + userAttribute + " " + "Computer's move: " + computerAttribute);
+            int computerAttribute = game.getComputerChoice();
+            System.out.println("Your move: " + userAttribute + "" + "Computer's move: " + computerAttribute);
             String result = game.gameResult();
             System.out.println(result);
 
@@ -58,7 +58,7 @@ public class RpsRunner {
                     System.out.println("You lost the game ");
                     System.out.println("Do you want play again?");
                     if (scanner.next().equals("n")) {
-                        System.out.println("How many won rounds do you want to play to win the game?");
+                        System.out.println("Give the quantity of won rounds necessary to win the game:");
                         nbOfRoundsToWin = scanner.nextInt();
                         nbOfLostRounds = 0;
                         scanner.nextLine();
