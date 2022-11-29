@@ -10,7 +10,9 @@ public class FlightsMap {
         flightsMap.put("Warsaw", true);
         flightsMap.put("Berlin", false);
 
-        if (flightsMap.containsKey(flight.getArrivalAirport()) && flightsMap.get(flight.getArrivalAirport())) {
+        if (flightsMap.containsKey(flight.getArrivalAirport()) && flightsMap.get(flight.getArrivalAirport()))
+//        metoda containsKey sprawdza czy dany klucz jest w mapie, a get pobiera wartość i w tym przypadku sprawdza czy jest true
+        {
             return true;
         } else {
             throw new RouteNotFoundException();
