@@ -2,7 +2,7 @@ package com.kodilla.good.patterns.challenges;
 
 import java.time.LocalDate;
 
-public class OrderProcessorApp {
+public class OrderProcessorMain {
     public static void main(String[] args) {
         InformationService informationService = new OrderInformationService();
         OrderService orderService = new ProductOrderService();

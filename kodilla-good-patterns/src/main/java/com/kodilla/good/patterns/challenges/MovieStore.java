@@ -24,18 +24,25 @@ public class MovieStore {
 
         return booksTitlesWithTranslations;
     }
-
-    public String showMovieTitle() {
-        Map<String, List<String>> titles = getMovies();
+    public static void main(String[] args) {
+        MovieStore movieStore = new MovieStore();
+        Map<String, List<String>> titles = movieStore.getMovies();
         String movieTitles = titles.values().stream()
                 .flatMap(Collection::stream)
                 .collect(Collectors.joining("! ", "", ""));
-        return movieTitles;
+        System.out.println(movieTitles);
     }
-
-    public static void main(String[] args) {
-        MovieStore movieStore = new MovieStore();
-        String result = movieStore.showMovieTitle();
-        System.out.println(result);
-    }
+//    alternatywa:
+//    public String showMovieTitle() {
+//        Map<String, List<String>> titles = getMovies();
+//        String movieTitles = titles.values().stream()
+//                .flatMap(Collection::stream)
+//                .collect(Collectors.joining("! ", "", ""));
+//        return movieTitles;
+//    }
+//public static void main(String[] args) {
+//    MovieStore movieStore = new MovieStore();
+//    String result = movieStore.showMovieTitle();
+//    System.out.println(result);
+//}
 }

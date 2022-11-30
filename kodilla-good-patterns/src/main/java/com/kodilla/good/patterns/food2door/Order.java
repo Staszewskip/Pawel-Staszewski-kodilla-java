@@ -1,14 +1,15 @@
-package com.kodilla.good.patterns.challenges.food2door;
+package com.kodilla.good.patterns.food2door;
 
 public class Order {
     private int quantity;
     private String productType;
     private int orderNumber;
 
-    public Order(int quantity, String productType, int orderNumber) {
-        this.quantity = quantity;
-        this.productType = productType;
+
+    public Order(int orderNumber,String productType, int quantity) {
         this.orderNumber = orderNumber;
+        this.productType = productType;
+        this.quantity = quantity;
     }
 
     public int getQuantity() {
@@ -22,4 +23,5 @@ public class Order {
     public int getOrderNumber() {
         return orderNumber;
     }
+
 }
