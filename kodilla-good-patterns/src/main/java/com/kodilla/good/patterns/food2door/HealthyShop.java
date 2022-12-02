@@ -5,8 +5,12 @@ import java.util.Map;
 import java.util.Objects;
 
 public class HealthyShop implements Supplier {
-    private final String name = "HealthyShop";
+    private final String name;
     Map<String, Integer> stockHS = new HashMap<>();
+    public HealthyShop(){
+        this.name = "HealthyShop";
+        putProductInStock();
+    }
 
     @Override
     public String getName() {
@@ -20,6 +24,7 @@ public class HealthyShop implements Supplier {
         stockHS.put("Feta cheese", 60);
         stockHS.put("Halloumi cheese", 70);
     }
+
 
     @Override
     public void updateStockQty(String product, Integer orderedQty) {

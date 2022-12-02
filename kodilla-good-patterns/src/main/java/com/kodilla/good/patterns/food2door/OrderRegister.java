@@ -7,9 +7,7 @@ public class OrderRegister {
 SuppliersPortfolio supplier = new SuppliersPortfolio();
 supplier.process(new Order(1,"Apples",10));
 supplier.process(new Order(2,"Beef",20));
-supplier.process(new Order(3,"Tofu",55));
+supplier.process(new Order(3,"Tofu",15));
 supplier.process(new Order(4,"Orange",55));
-
-
     }
 }

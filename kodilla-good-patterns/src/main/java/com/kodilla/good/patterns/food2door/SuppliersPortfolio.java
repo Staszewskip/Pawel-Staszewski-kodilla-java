@@ -25,13 +25,13 @@ public class SuppliersPortfolio {
         suppliersOffer.put("Pork", glutenFreeShop);
         suppliersOffer.put("Veal", glutenFreeShop);
     }
-public void process (Order order){
+    public void process (Order order){
         if (suppliersOffer.containsKey(order.getProductType())){
             suppliersOffer.get(order.getProductType()).process(order);
         } else {
-            System.out.println("Error occured, please contact us");
+            System.out.println("Product not available, please contact us");
         }
-}
+    }
 
 
 }

@@ -5,9 +5,13 @@ import java.util.Map;
 import java.util.Objects;
 
 public class GlutenFreeShop implements Supplier {
-    private final String name = "GlutenFreeShop";
+    private final String name;
     Map<String, Integer> stockGFS = new HashMap<>();
 
+    public GlutenFreeShop() {
+        this.name = "GlutenFreeShop";
+        putProductInStock();
+    }
 
     @Override
     public String getName() {
