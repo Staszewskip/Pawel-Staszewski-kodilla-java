@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 public class FlightSearch {
     FlightDatabase flightDatabase = new FlightDatabase();
-    Set<Flight> flightSet = new HashSet<>();
 
     public Set<Flight> findFlightsFromGivenAirport(String city) {
         return flightDatabase.flightSet.stream()

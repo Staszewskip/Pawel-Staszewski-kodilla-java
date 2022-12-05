@@ -19,7 +19,6 @@ public class FlightDatabase {
         return flightSet;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
