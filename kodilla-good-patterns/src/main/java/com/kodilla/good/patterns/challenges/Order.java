@@ -1,40 +1,20 @@
 package com.kodilla.good.patterns.challenges;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
-public class Order {
-    private final User user;
-    private final String product;
-    private final int quantity;
-    private final LocalDate orderDate;
-    private final boolean isOrdered;
-
-    public Order(User user, String product, int quantity, LocalDate orderDate, boolean isOrdered) {
-        this.user = user;
-        this.product = product;
-        this.quantity = quantity;
-        this.orderDate = orderDate;
-        this.isOrdered = isOrdered;
+public record Order(User user, String product, int quantity, LocalDate orderDate) {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return quantity == order.quantity && Objects.equals(user, order.user) && Objects.equals(product, order.product) && Objects.equals(orderDate, order.orderDate);
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public String getProduct() {
-        return product;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public LocalDate getOrderDate() {
-        return orderDate;
-    }
-
-    public boolean isOrdered() {
-        return isOrdered;
+    @Override
+    public int hashCode() {
+        return Objects.hash(user, product, quantity, orderDate);
     }
 }
 

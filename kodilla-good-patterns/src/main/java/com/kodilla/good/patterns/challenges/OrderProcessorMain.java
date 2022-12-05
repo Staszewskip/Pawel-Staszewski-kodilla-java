@@ -7,6 +7,6 @@ public class OrderProcessorMain {
         InformationService informationService = new OrderInformationService();
         OrderService orderService = new ProductOrderService();
         OrderProcessor orderProcessor = new OrderProcessor(informationService,orderService);
-        orderProcessor.process(new User("Johnny", "Bravo"),"toothbrush",1, LocalDate.now(),true);
+        orderProcessor.process(new User("Johnny", "Bravo"),"toothbrush",1, LocalDate.now());
     }
 }

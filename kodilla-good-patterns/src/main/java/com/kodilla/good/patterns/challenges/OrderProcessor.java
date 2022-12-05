@@ -11,9 +11,9 @@ public class OrderProcessor {
         this.productOrderService = productOrderService;
     }
 
-    public Order process(User user, String product, int quantity, LocalDate dateOfOrder, boolean isOrdered) {
-        boolean result = productOrderService.order(new Order(user, product, quantity, dateOfOrder, isOrdered));
+    public Order process(User user, String product, int quantity, LocalDate dateOfOrder) {
+        boolean result = productOrderService.order(new Order(user, product, quantity, dateOfOrder));
         orderInformationService.inform(user);
-        return new Order(user, product, quantity, dateOfOrder, isOrdered);
+        return new Order(user, product, quantity, dateOfOrder);
     }
 }
