@@ -1,7 +1,5 @@
 package com.kodilla.good.patterns.flights;
 
-import java.util.Scanner;
-
 public class FlightMain {
     public static void main(String[] args) {
         FlightSearch flightSearch = new FlightSearch();

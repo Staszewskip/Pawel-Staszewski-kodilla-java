@@ -1,7 +1,7 @@
 package com.kodilla.good.patterns.flights;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.HashSet;
+import java.util.Set;
 
 public class FlightDatabase {
     Set<Flight> flightSet = new HashSet<>();
@@ -18,18 +18,4 @@ public class FlightDatabase {
         flightSet.add(new Flight("Warszawa", "Wroclaw"));
         return flightSet;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        FlightDatabase that = (FlightDatabase) o;
-        return Objects.equals(flightSet, that.flightSet);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(flightSet);
-    }
-
 }
