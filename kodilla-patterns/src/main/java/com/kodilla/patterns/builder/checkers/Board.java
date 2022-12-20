@@ -1,4 +1,4 @@
-package com.kodilla.patterns.builder.pizza.checkers;
+package com.kodilla.patterns.builder.checkers;
 
 public class Board {
     public final static int MIN_INDEX = 0;
