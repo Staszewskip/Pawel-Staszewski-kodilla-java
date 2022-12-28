@@ -6,17 +6,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class testLoopAndConditionalBreakpoints {
     @Test
-    void testLoop(){
+    void testLoop() {
 //        given
         long sum = 0;
 //        when
-        for (int n=0;n<1000;n++){
-sum += n;
+        for (int n = 0; n < 1000; n++) {
+            sum += n;
 
             System.out.println("[" + n + "] Sum equals: " + sum);
         }
 //            then
-            assertEquals(499500, sum);
+        assertEquals(499500, sum);
 
     }
 }
