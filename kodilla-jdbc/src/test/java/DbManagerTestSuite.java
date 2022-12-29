@@ -40,7 +40,7 @@ class DbManagerTestSuite {
     }
 
     @Test
-    void testSelectUsersAndTasks() throws SQLException{
+    void testSelectUsersAndTasks() throws SQLException {
 //        given
         DbManager dbManager = DbManager.getInstance();
 //        when
@@ -61,6 +61,31 @@ class DbManagerTestSuite {
         rs.close();
         statement.close();
         assertEquals(15, counter);
+    }
+
+    @Test
+    void testSelectUsersAndPosts() throws SQLException {
+//        given
+        DbManager dbManager = DbManager.getInstance();
+//        when
+        String sqlQuery = "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER\n" +
+                "FROM USERS U JOIN POSTS P ON U.ID = P.USER_ID\n" +
+                " GROUP BY P.USER_ID\n" +
+                "HAVING COUNT(*) >=2";
+
+        Statement statement = dbManager.getConnection().createStatement();
+        ResultSet rs = statement.executeQuery(sqlQuery);
+//        then
+        int counter = 0;
+        while (rs.next()) {
+            System.out.println(rs.getString("FIRSTNAME") + ", " +
+                    rs.getString("LASTNAME") + ", " +
+                    rs.getInt("POSTS_NUMBER"));
+            counter++;
+        }
+        rs.close();
+        statement.close();
+        assertEquals(1, counter);
     }
 }
 
