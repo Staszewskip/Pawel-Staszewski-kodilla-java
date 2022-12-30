@@ -11,16 +11,10 @@ public class TaskFactory {
 
     public final Task makeTask(final String taskClass){
         return switch (taskClass){
-            case DRIVING -> new DrivingTask("task1","where1","using1");
-            case SHOPPING -> new ShoppingTask("task2","product",2);
-            case PAINTING -> new PaintingTask("task3","blue","car");
+            case DRIVING -> new DrivingTask("DRIVING","where1","using1");
+            case SHOPPING -> new ShoppingTask("SHOPPING","product",2);
+            case PAINTING -> new PaintingTask("PAINTING","blue","car");
             default -> null;
         };
-    }
-    public Map<Task, Boolean> putTaskInMap(Task task) {
-        task.executeTask();
-        Boolean isExecuted = task.isTaskExecuted();
-        tasks.put(task, isExecuted);
-        return tasks;
     }
 }
