@@ -15,17 +15,23 @@ import static org.junit.jupiter.api.Assertions.*;
 class TaskListDaoTestSuite {
     @Autowired
     private TaskListDao taskListDao;
+    private static final String LISTNAME = "Task Name";
+    private static final String DESCRIPTION = "Task to do";
 
     @Test
     void testFindByListName() {
 //    given
-        TaskList taskList = new TaskList(1, "TaskNames", "TasksToDo");
+        TaskList taskList = new TaskList(1,LISTNAME,DESCRIPTION);
         taskListDao.save(taskList);
+        String listName = taskList.getListName();
 //     when
-        List<TaskList> foundTasks = taskListDao.findByListName("TaskNames");
+        List<TaskList> foundTasks = taskListDao.findByListName(listName);
 
 //     then
      assertEquals(1,foundTasks.size());
-    }
 
+     //CleanUp
+        int id = foundTasks.get(0).getId();
+        taskListDao.deleteById(id);
+    }
 }
