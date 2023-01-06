@@ -1,6 +1,7 @@
 package com.kodilla.hibernate.tasklist.dao;
 
-import com.kodilla.hibernate.tasklist.TaskList;
+import com.kodilla.hibernate.task.dao.TaskFinancialDetailsDao;
+import com.kodilla.hibernate.task.TaskList;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,14 +15,14 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class TaskListDaoTestSuite {
     @Autowired
-    private TaskListDao taskListDao;
+    private TaskFinancialDetailsDao.TaskListDao taskListDao;
     private static final String LISTNAME = "Task Name";
     private static final String DESCRIPTION = "Task to do";
 
     @Test
     void testFindByListName() {
 //    given
-        TaskList taskList = new TaskList(1,LISTNAME,DESCRIPTION);
+        TaskList taskList = new TaskList(LISTNAME,DESCRIPTION);
         taskListDao.save(taskList);
         String listName = taskList.getListName();
 //     when
