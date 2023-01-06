@@ -5,7 +5,10 @@ import jakarta.validation.constraints.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@NamedQuery(
+        name = "Company.findByFirstThreeLetters",
+        query = "FROM Company WHERE substring(name,1,3) = :FIRST_THREE_LETTERS"
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
