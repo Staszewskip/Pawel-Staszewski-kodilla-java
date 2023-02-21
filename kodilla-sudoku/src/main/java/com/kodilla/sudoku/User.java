@@ -1,2 +1,4 @@
-package com.kodilla.sudoku;public class User {
+package com.kodilla.sudoku;
+
+public class User {
 }

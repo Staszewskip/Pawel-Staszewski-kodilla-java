@@ -69,7 +69,7 @@ task.setTaskFinancialDetails(new TaskFinancialDetails(new BigDecimal(120),false)
         assertNotEquals(0, id);
 
         //CleanUp
-        //taskDao.deleteById(id);
+        taskDao.deleteById(id);
     }
 
     @Test

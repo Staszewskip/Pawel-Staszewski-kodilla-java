@@ -1,2 +1,4 @@
-package com.kodilla.sudoku;public class Solver {
+package com.kodilla.sudoku;
+
+public class Solver {
 }
