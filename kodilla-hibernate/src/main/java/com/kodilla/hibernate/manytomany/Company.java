@@ -16,7 +16,6 @@ import java.util.List;
                 query = "FROM Company WHERE name LIKE concat('%',:ARG, '%')"
         )
 }
-
 )
 
 @Entity
