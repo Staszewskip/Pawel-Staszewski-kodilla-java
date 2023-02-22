@@ -1,13 +1,24 @@
 package com.kodilla.hibernate.manytomany;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
-@NamedQuery(
-        name = "Company.findByFirstThreeLetters",
-        query = "FROM Company WHERE substring(name,1,3) = :FIRST_THREE_LETTERS"
+
+@NamedQueries({
+        @NamedQuery(
+                name = "Company.findByFirstThreeLetters",
+                query = "FROM Company WHERE substring(name,1,3) = :FIRST_THREE_LETTERS"
+        ),
+        @NamedQuery(
+                name = "Company.findCompaniesByAnyFragmentOfTheName",
+                query = "FROM Company WHERE name LIKE concat('%',:ARG, '%')"
+        )
+}
+
 )
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
@@ -35,6 +46,7 @@ public class Company {
     public String getName() {
         return name;
     }
+
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies")
     public List<Employee> getEmployees() {
         return employees;
