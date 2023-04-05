@@ -1,11 +1,10 @@
 package com.kodilla.patterns2.adapter.bookclasifier.libraryb;
 
-import java.util.Arrays;
-import java.util.Map;
+import java.util.*;
 
 public class Statistics implements BookStatistics {
     @Override
-    public int averagePublicationYear(Map<BookSignature, Book> books) {
+    public double averagePublicationYear(Map<BookSignature, Book> books) {
         if (books.size() == 0) return 0;
         int sum = 0;
         for (Map.Entry<BookSignature, Book> entry : books.entrySet()) {
@@ -15,16 +14,21 @@ public class Statistics implements BookStatistics {
     }
 
     @Override
-    public int medianPublicationYear(Map<BookSignature, Book> books) {
+    public double medianPublicationYear(Map<BookSignature, Book> books) {
         if (books.size() == 0) return 0;
-        int[] years = new int[books.size()];
-        int n = 0;
+        List<Integer> years = new ArrayList<>();
+
         for (Map.Entry<BookSignature, Book> entry : books.entrySet()) {
-            years[n] = entry.getValue().getYearOfPublication();
-            n++;
+            years.add(entry.getValue().getYearOfPublication());
         }
-        Arrays.sort(years);
-        return years[years.length / 2];
+        Collections.sort(years);
+        double median;
+        if (years.size() % 2 == 0) {
+            median = (years.get(years.size()/2-1) + years.get(years.size()/2));
+        } else {
+            median =  years.get(years.size()/2);
+        }
+        return median;
     }
 }
 

@@ -60,8 +60,8 @@ class TaskDaoTestSuite {
     @Test
     void testTaskDaoSaveWithFinancialDetails() {
 //        Given
-Task task = new Task (DESCRIPTION, 30);
-task.setTaskFinancialDetails(new TaskFinancialDetails(new BigDecimal(120),false));
+        Task task = new Task(DESCRIPTION, 30);
+        task.setTaskFinancialDetails(new TaskFinancialDetails(new BigDecimal(120), false));
 //    When
         taskDao.save(task);
         int id = task.getId();
