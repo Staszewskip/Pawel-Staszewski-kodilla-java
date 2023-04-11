@@ -1,7 +1,6 @@
 package com.kodilla.good.patterns.challenges;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 public record Order(User user, String product, int quantity, LocalDate orderDate) {
     @Override
