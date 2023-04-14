@@ -11,7 +11,7 @@ public class FacebookTestingApp {
     private static final String XPATH_CREATE_ACCOUNT = "//div[@class=\"_6ltg\"]/a";
     private static final String XPATH_DAY_OF_BIRTH = "//div[@class=\"_5k_5\"]/span/span/select[1]";
     private static final String XPATH_MONTH_OF_BIRTH = "//div[@class=\"_5k_5\"]/span/span/select[2]";
-    private static final String XPATH_YEAR_OF_BIRTH = "//div[@class=\"_5k_5\"]/span/span/select[3]";;
+    private static final String XPATH_YEAR_OF_BIRTH = "//div[@class=\"_5k_5\"]/span/span/select[3]";
     private static final String XPATH_SEX_MAN = "//span[@class=\"_5k_3\"]/span[2]/input";
 
     public static void main(String[] args) throws InterruptedException {
